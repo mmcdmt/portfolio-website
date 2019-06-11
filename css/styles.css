@@ -1,0 +1,245 @@
+/*
+colors used
+Text Color (Slate Grey):#2f2f2f;
+Primary Color(Medium blue): #0000cd;
+Secondary Color(dark orange): #ff8c00;
+*/
+:root {
+	--primary-color: #0000cd;
+	--secondary-color: #ff8c00;
+	--slate-gray: #2f2f2f;
+	--silver: #f2f2f2;
+	--teal: #008080;
+	--white: #fff;
+	--primary-font-family:'Noto Sans JP', sans-serif;
+	--primary-font-weight: 400;
+	--secondary-font-weight: 700;
+	--primary-line-height: 1.6; 
+}
+
+body {
+	background-color: var(--silver);
+	font-family: var(--primary-font-family);
+	font-weight: var(--primary-font-weight);
+	font-size: 16px;
+	/* Sets the font size to 16px*/
+	line-height: var(--primary-line-height);
+	/*set the line-height to 1.6*/
+}
+h1 {
+	font-size: 30px;
+	font-weight: var(--secondary-font-weight);
+}
+h2 {
+	font-size: 24px;
+	font-weight: var(--secondary-font-weight);
+}
+h3 {
+	font-size: 18px;
+	font-weight: var(--secondary-font-weight);
+}
+a {
+	color: var(--primary-color)
+}
+a:visited {
+	/* visited link */
+	color: var(--teal);
+}
+a:hover, a:focus {
+	/* No underlining when hovering over a link */
+	text-decoration: none;
+}
+a:active {
+	/* selected link */
+	color: var(--secondary-color);
+}
+.button, button {
+	/* overwrites browser defaults */
+	/* resets the border */
+	border: none;
+	display: inline-block;
+	/* takes the font from the outer container */
+	font-family: inherit;
+	/* styles the button */
+	background-color: var(--teal);
+	color: var(--white);
+	text-decoration: none;
+	padding: 10px;
+	border-radius: 3px;
+	/* width of the border, type color */
+	border-bottom: 2px solid rgba (0, 0, 0, 0.3);
+	transition: 0.2s opacity;
+}
+button:hover,
+button:focus,
+.button:hover,
+.button:focus {
+	/* lets the mouse appear as a hand when hovering over the button */
+	cursor: pointer;
+	/* reduces the opacity of the button to 80% */
+	opacity: 0.8;
+}
+.button__secondary {
+	background-color: var(--secondary-color);
+	color: var(--white);
+}
+.navigation-list {
+	list-style-type: none;
+}
+.navigation-list li {
+display: inline-block;
+margin-left: 15px;
+}
+.navigation-list__item--active {
+	text-decoration: none;
+}
+.profile {
+	max-width: 700px;
+	margin: 0 auto;
+}
+.profile__portrait {
+	float: left;
+	width: 250px;
+	margin-right: 40px;
+	border-radius: 50%;
+}
+.profile__text {
+	flex: 1 1 100px;
+}
+.page-footer {
+	clear: both;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+}
+* {
+	box-sizing: border-box;
+}
+.page-header {
+	display: flex;
+	width: 100%;
+	padding: 20px;
+}
+.page-header__item {
+	flex: 0 1 200px;
+}
+.page-header__item:last-child {
+	flex-grow: 1;
+	text-align: right;
+}
+/*Grid fallback*/
+
+.grid__item {
+	display: inline-block;
+	width: 33%;
+}
+/*Styling CSS grid*/
+
+.grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-gap: 20px;
+}
+.grid__item {
+	background-color: lightgray;
+	padding: 10px;
+	/*set width to auto*/
+	width: auto;
+}
+.grid__item:last-child {
+	grid-row: 1/3;
+	grid-column: 3/3;
+}
+@media all and (max-width: 500px) {
+	.grid {
+		grid-template-columns: 1fr;
+	}
+}
+@media all and (min-width: 500px) and (max-width: 750px) {
+	.grid {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+@media all and (max-width: 750px) {
+	/* shared code */
+	.grid {
+		grid-gap: 10px;
+	}
+	.grid__item:last-child {
+		grid-row: auto/auto;
+		grid-column: auto/auto;
+	}
+	h1 {
+		font-size: 22px;
+	}
+}
+.about {
+	clear: both;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+}
+.about-list {
+	list-style-type: none;
+}
+.contact-info {
+	clear: both;
+	display: flex;
+	flex-direction: column;
+	text-align: center;	
+}
+
+@keyframes change-color {
+	0% {
+		fill: #0602f4;
+	}
+	50% {
+		fill: #ff0;
+	} 
+	100% {
+		fill: #fff;
+	}
+}
+.star {
+	animation-duration: 4s;
+	animation-name: change-color;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+	animation-timing-function: linear;
+}
+@keyframes sun-move {
+	from {
+		transform: translate(0, -1px);
+	}
+	to {
+		transform: translate(-83px, -1px);
+	}
+}
+.sun {
+	animation: 50s sun-move infinite alternate linear;
+}
+
+@keyframes shadow-move {
+	from {
+		transform: translate3d(0px, 2px, -25px);
+	}
+	to {
+		transform: translate3d(-25px, 2px, 0px);
+	}
+}
+.shadow {
+	animation: 45s shadow-move infinite alternate linear;
+}
+@keyframes blue-move-reverse {
+	from {
+		transform: translate3d(0px, -15px, 0);
+	}
+	to {
+		transform: translate3d(-15px, 15, 0px);
+	}
+}
+.blue-ball {
+	animation: 2s blue-move-reverse infinite alternate linear;
+}
+
+
