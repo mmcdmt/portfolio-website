@@ -188,6 +188,12 @@ margin-left: 15px;
 	flex-direction: column;
 	text-align: center;	
 }
+.work-title {
+	clear: both;
+	display: flex;
+	flex-direction: column;
+	text-align: center;	
+}
 
 @keyframes change-color {
 	0% {
